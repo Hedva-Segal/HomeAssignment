@@ -11,8 +11,6 @@ In order to improve the solution, I would refer to:
 
  - Performance: Reading data from a file is suitable for simple use cases with small datasets and low performance requirements. On the other hand, reading data from a database like Redis provides scalability, performance, advanced querying capabilities, and data persistence, making it suitable for more complex applications with larger datasets and higher performance demands.
 
-
-
-
 - API tests
+- Logging
   
