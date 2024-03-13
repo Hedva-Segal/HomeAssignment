@@ -1,7 +1,7 @@
 package com.intuit.homeAssignment.service;
 
 import com.intuit.homeAssignment.dao.PlayerDao;
-import com.intuit.homeAssignment.data.Player;
+import com.intuit.homeAssignment.persistence.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +14,13 @@ public class PlayerService {
     @Autowired
     private PlayerDao playerDao;
 
-    public PlayerService() {
-    }
-
     public Optional<Player> getById(String id) throws IOException {
-        return this.playerDao.getPlayerById(id);
+        final Optional<Player> player = playerDao.getPlayerById(id);
+        return player;
     }
 
     public List<Player> getAll() throws IOException {
-        return this.playerDao.getPlayers();
+        List<Player> players = playerDao.getPlayers();
+        return players;
     }
 }
