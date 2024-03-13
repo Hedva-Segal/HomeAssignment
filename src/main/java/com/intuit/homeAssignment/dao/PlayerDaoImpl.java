@@ -54,13 +54,13 @@ public class PlayerDaoImpl implements PlayerDao {
     }
 
     private Player convertPlayerFileRecordToPlayerObject(CSVRecord record) {
-        final Player player = new Player();
-        Arrays.stream(HEADERS).forEach((header) -> {
+        Player player = new Player();
+        for (String header : HEADERS) {
             String value = record.get(header);
             if (!value.isEmpty()) {
-                this.setFieldByHeader(header, player, value);
+                setFieldByHeader(header, player, value);
             }
-        });
+        }
         return player;
     }
 

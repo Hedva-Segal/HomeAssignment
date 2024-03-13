@@ -1,4 +1,4 @@
-package com.intuit.homeAssignment;
+package com.intuit.homeAssignment.Integration;
 
 import com.intuit.homeAssignment.dao.PlayerDaoImpl;
 import com.intuit.homeAssignment.persistence.Player;
@@ -20,15 +20,12 @@ public class PlayerDaoIntegrationTest {
     @Autowired
     private PlayerDaoImpl playerDao;
 
-    public PlayerDaoIntegrationTest() {
-    }
-
     @Test
     public void testGetPlayerById_PlayerExists() throws IOException {
         String playerId = "aardsda01";
         Optional<Player> playerOptional = this.playerDao.getPlayerById(playerId);
         Assertions.assertTrue(playerOptional.isPresent());
-        Player player = (Player) playerOptional.get();
+        Player player = playerOptional.get();
         Assertions.assertEquals(playerId, player.getPlayerId());
     }
 

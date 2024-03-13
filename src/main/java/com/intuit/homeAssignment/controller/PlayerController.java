@@ -50,7 +50,8 @@ public class PlayerController {
         }
     }
 
-    private ResponseEntity<String> getErrorResponseEntity(IOException e) {
+    @ExceptionHandler(IOException.class)
+    private ResponseEntity getErrorResponseEntity(IOException e) {
         logger.error("Failed or interrupted I/O operations. " + e.getMessage());
         return ResponseEntity.internalServerError().body("Failed or interrupted I/O operations. please try later");
     }
@@ -58,6 +59,7 @@ public class PlayerController {
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity handleValidationException(ValidationException ex) {
         String errorMessage = ex.getMessage();
+        logger.warn("API validation error: " + errorMessage);
         return ResponseEntity.badRequest().body(errorMessage);
     }
 }
