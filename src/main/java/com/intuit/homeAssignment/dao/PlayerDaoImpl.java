@@ -54,7 +54,7 @@ public class PlayerDaoImpl implements PlayerDao {
     }
 
     private Player convertPlayerFileRecordToPlayerObject(CSVRecord record) {
-        Player player = new Player();
+        final Player player = new Player();
         for (String header : HEADERS) {
             String value = record.get(header);
             if (!value.isEmpty()) {
