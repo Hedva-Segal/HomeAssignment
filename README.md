@@ -1,4 +1,4 @@
-# HomeAssignment
+# player-assignment
 
 This implementation is a naive solution that meets the functionality required in the task.
 In order to improve the solution, I would refer to: 
