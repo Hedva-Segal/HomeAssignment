@@ -1,16 +1,24 @@
 # player-assignment
 
-This implementation is a naive solution that meets the functionality required in the task.
-In order to improve the solution, I would refer to: 
+This repository contains a solution for the player assignment task. The current implementation provides the necessary functionality in a naive solution
 
-- Save the given file in a safe and highly available place (such as S3) in order to avoid a situation where the file is deleted or cannot be accessed for any reason
+## Input Validation
+Validation has been added to the playerId input in the API. Based on the data in the player.csv file, the playerId is expected to end with 2 digits and be between 8 and 9 characters long.
 
-- Pagination: Using pagination instead of loading all data from a database offers several benefits, including improved performance, reduced resource consumption, and better scalability. By fetching data in smaller batches, pagination helps optimize resource utilization, minimize network overhead, and ensure the application remains scalable and responsive, even with large datasets.
- 
- - Caching
 
- - Performance: Reading data from a file is suitable for simple use cases with small datasets and low performance requirements. On the other hand, reading data from a database like Redis provides scalability, performance, advanced querying capabilities, and data persistence, making it suitable for more complex applications with larger datasets and higher performance demands.
+## Improvement Steps
+To enhance the solution, the following steps could be taken:
 
-- API tests
-- Logging
-  
+### 1. File Management
+Secure Storage: Consider storing the given file in a secure and highly available location such as Amazon S3. This ensures the file is safely stored and accessible, minimizing the risk of data loss or unavailability.
+
+### 2. Pagination
+Improved Data Retrieval: Implement pagination for data retrieval instead of loading all data from the database at once. Pagination offers benefits such as enhanced performance, reduced resource consumption, and better scalability. By fetching data in smaller chunks, pagination optimizes resource utilization and ensures responsiveness, especially with large datasets.
+
+ ### 3. Caching
+Data Caching: Implement caching mechanisms to store frequently accessed data in memory. Caching can significantly improve performance by reducing the need to fetch data from the database repeatedly.
+
+### 4. Performance Optimization
+Database Usage: Evaluate the performance requirements and consider migrating from file-based storage to a database solution like Redis. Redis offers scalability, advanced querying capabilities, and data persistence, making it suitable for applications with larger datasets and higher performance demands.
+
+By implementing these improvements, the solution can become more robust, scalable, and efficient.
