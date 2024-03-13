@@ -1,6 +1,7 @@
 package com.intuit.homeAssignment.dao;
 
-import com.intuit.homeAssignment.data.Player;
+import com.intuit.homeAssignment.persistence.Player;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;

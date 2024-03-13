@@ -1,7 +1,7 @@
 package com.intuit.homeAssignment;
 
-import com.intuit.homeAssignment.daoImpl.PlayerDaoImpl;
-import com.intuit.homeAssignment.data.Player;
+import com.intuit.homeAssignment.dao.PlayerDaoImpl;
+import com.intuit.homeAssignment.persistence.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

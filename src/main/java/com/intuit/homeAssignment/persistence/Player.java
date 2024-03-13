@@ -1,12 +1,11 @@
-package com.intuit.homeAssignment.data;
-
+package com.intuit.homeAssignment.persistence;
 
 import lombok.Data;
 
 import java.time.LocalDate;
 @Data
-
 public class Player {
+
     private String playerId;
     private Integer birthYear;
     private Integer birthMonth;
