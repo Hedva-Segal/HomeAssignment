@@ -22,7 +22,7 @@ jobs:
     - name: Download JAR artifact
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflow: build.yml
+        workflow: "Java Build and Test"
         workflow_conclusion: success
         name: app-jar
         path: target
