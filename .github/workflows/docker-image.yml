@@ -21,7 +21,8 @@ jobs:
     - name: Download JAR artifact
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflows: "Java Build and Test"
+        workflow: "Java Build and Test" # Corrected workflow name
+        workflow_conclusion: success
         name: app-jar
         path: target/HomeAssignment*.jar
 
