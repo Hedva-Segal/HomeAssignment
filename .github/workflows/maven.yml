@@ -6,14 +6,15 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+# .github/workflows/build.yml
+name: Java Build and Test
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,7 +30,7 @@ jobs:
         cache: maven
     
     - name: Build and Run Tests
-      run: mvn -B clean verify
+      run: mvn -B clean package
       
     - name: Publish Test Results
       if: always()
@@ -40,9 +41,8 @@ jobs:
           **/target/surefire-reports/
           **/target/failsafe-reports/
           
-    - name: Cache Maven packages
-      uses: actions/cache@v3
+    - name: Upload JAR artifact
+      uses: actions/upload-artifact@v3
       with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+        name: app-jar
+        path: target/HomeAssignment*.jar
