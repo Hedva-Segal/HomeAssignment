@@ -1,9 +1,8 @@
-# .github/workflows/docker.yml
 name: Docker Build and Publish
 
 on:
   workflow_run:
-    workflows: ["Java Build and Test"]
+    workflows: ["Java Build and Test"] # Ensure this matches the workflow name
     types:
       - completed
     branches: [ "main" ]
@@ -15,28 +14,28 @@ jobs:
     permissions:
       contents: read
       packages: write
-    
+
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Download JAR artifact
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflow: "Java Build and Test"
+        workflow: "Java Build and Test" # Corrected workflow name
         workflow_conclusion: success
         name: app-jar
         path: target
-    
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
-    
+
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    
+
     - name: Extract metadata (tags, labels) for Docker
       id: meta
       uses: docker/metadata-action@v5
@@ -45,7 +44,7 @@ jobs:
         tags: |
           type=raw,value=latest
           type=sha,prefix={{date 'YYYYMMDD'}}-
-    
+
     - name: Build and Push Docker image
       uses: docker/build-push-action@v5
       with:
